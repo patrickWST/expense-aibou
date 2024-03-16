@@ -1,0 +1,21 @@
+.navigation-bar {
+    background-color: #FAEDCB;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0px;
+    padding-top: 8px;
+    width: calc(100% - 16px);
+}
+
+.navigation-bar__back,
+.navigation-bar__settings,
+.navigation-bar__placeholder {
+    width: 48px;
+    padding: 0 4px;
+}
+
+.navigation__spacer {
+    height: 88px;
+}

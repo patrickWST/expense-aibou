@@ -1,0 +1,8 @@
+.overview__category-btn {
+    background-color: #85b3d9;
+    padding: 20px;
+    margin: 8px 4px;
+    width: calc(50% - 8px);
+    font-size: 24px;
+    border-style: dotted;
+}

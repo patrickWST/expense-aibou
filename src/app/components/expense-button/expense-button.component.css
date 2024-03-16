@@ -1,0 +1,20 @@
+.expense-button {
+    background-color: #C6DEF1;
+    padding: 16px 0;
+    margin: 8px 4px;
+    width: calc(50% - 8px);
+}
+
+span {
+    display: block;
+}
+
+.expense-button__title {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.expense-button__currency {
+    font-size: 20px;
+    font-weight: 500;
+}

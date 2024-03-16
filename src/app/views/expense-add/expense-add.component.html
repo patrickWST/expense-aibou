@@ -1,0 +1,77 @@
+<h2 class="expense__title">{{ selectedExpense }}</h2>
+<span class="expense__edit">Edit Category</span>
+
+<form [formGroup]="addExpenseForm" (ngSubmit)="handleSubmit()">
+    <div class="expense__form">
+        <div class="expense__group">
+            <label class="expense__label expense__label--date">
+                Date
+                <input
+                    class="expense__details-date"
+                    type="date"
+                    formControlName="date"
+                >
+            </label>
+            <label class="expense__label expense__label--time">
+                Time
+                <input
+                class="expense__details-time"
+                    type="time"
+                    formControlName="time"
+                >
+            </label>
+        </div>
+
+        <div class="expense__group">
+            <label class="expense__label expense__label--full-width">
+                Details
+                <input
+                    class="expense__details-input"
+                    type="text"
+                    formControlName="details"
+                >
+            </label>
+        </div>
+
+        <div class="expense__group">
+            <label class="expense__label">
+                Currency
+                <select
+                    class="expense__details-currency"
+                    formControlName="currency"
+                >
+                    @for (currency of currencies; track $index) {
+                        <option [value]="currency">{{currency}}</option>
+                    }
+                </select>
+            </label>
+            <label class="expense__label">
+                Amount
+                <input
+                    class="expense__amount-input"
+                    type="number"
+                    formControlName="amount"
+                >
+            </label>
+        </div>
+
+        <div class="expense__group expense__group--read-only">
+            <div>
+                <span class="expense__title--read-only">Exchange rate</span>
+                <span class="expense__title--read-only">{{ exchangeRateDate }}</span>
+                <span class="expense__value--read-only">EUR/{{selectedCurrency?.value}} {{exchangeRate}}</span>
+            </div>
+            <div>
+                <span class="expense__title--read-only">Converted</span>
+                <span class="expense__value--read-only">EUR {{ convertedAmount }}</span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="expense__button-group">
+        <button class="btn--warning" routerLink=".." type="button">Cancel</button>
+        <button class="btn--success" type="submit" [disabled]="!addExpenseForm.valid">Save</button>
+    </div>
+
+</form>

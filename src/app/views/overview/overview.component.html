@@ -1,0 +1,12 @@
+<app-summary />
+<section class="overview__expense-list">
+    @for (expense of expenses; track $index) {
+        <app-expense-button [expenseName]="expense"/>
+    }
+    <button
+        class="overview__category-btn"
+        (click)="openAddCategoryModal()"
+    >
+        Add category
+    </button>
+</section>
