@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { CurrencyPipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { ExpenseService } from '../../services/expense/expense.service';
+import { StorageService } from '../../services/storage/storage.service';
 
 
 @Component({
@@ -11,5 +13,17 @@ import { RouterLink } from '@angular/router';
   styleUrl: './summary.component.css'
 })
 export class SummaryComponent {
+  totalExpenseAmount: number;
+
+  expenseStartDate: string;
+
+  constructor(
+    private expenseService: ExpenseService,
+    private storageService: StorageService,
+  ) {
+    this.totalExpenseAmount = this.expenseService.totalExpenseAmount;
+    this.expenseStartDate = this.storageService.loadStartDate();
+  }
+
 
 }

@@ -1,20 +1,24 @@
 import { Component, Input } from '@angular/core';
 import { Validators, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { ExpenseService } from '../../services/expense/expense.service';
+import { StorageService } from '../../services/storage/storage.service';
+import { ExchangeRate } from '../../services/exchange/exchange.service';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-expense-add',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterLink],
+  imports: [ReactiveFormsModule, RouterLink, CurrencyPipe],
   templateUrl: './expense-add.component.html',
   styleUrl: './expense-add.component.css'
 })
 export class ExpenseAddComponent {
   selectedExpense = '';
 
-  exchangeRate = 160;
+  exchangeRate: number;
 
-  exchangeRateDate = '23.04.2023';
+  exchangeRateDate: string;
 
   currencies = [
     'JPY',
@@ -24,6 +28,16 @@ export class ExpenseAddComponent {
   @Input()
   set id(expenseName: string) {
     this.selectedExpense = expenseName;
+  }
+
+  constructor(
+    private expenseService: ExpenseService,
+    private storageService: StorageService,
+    private router: Router,
+  ) {
+    const savedExchangeRate = this.storageService.loadData('exchangeRate') as ExchangeRate;
+    this.exchangeRate = savedExchangeRate.value;
+    this.exchangeRateDate = savedExchangeRate.date;
   }
 
   addExpenseForm = new FormGroup({
@@ -53,5 +67,22 @@ export class ExpenseAddComponent {
 
   handleSubmit() {
     console.log(this.addExpenseForm.value);
+
+    if (!this.addExpenseForm.valid) {
+      return;
+    }
+
+    const newTransaction = {
+      date: this.addExpenseForm.value.date || '',
+      time: this.addExpenseForm.value.time || '',
+      details: this.addExpenseForm.value.details || '',
+      originalCurrency: this.addExpenseForm.value.currency || '',
+      amount: this.convertedAmount,
+      exchangeRate: this.exchangeRate,
+      exchangeRateDate: this.exchangeRateDate,
+    };
+
+    this.expenseService.addTransaction(this.selectedExpense, newTransaction);
+    this.router.navigateByUrl('/');
   }
 }

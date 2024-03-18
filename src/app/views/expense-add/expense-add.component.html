@@ -63,7 +63,7 @@
             </div>
             <div>
                 <span class="expense__title--read-only">Converted</span>
-                <span class="expense__value--read-only">EUR {{ convertedAmount }}</span>
+                <span class="expense__value--read-only">{{ convertedAmount | currency: 'EUR' }}</span>
             </div>
         </div>
     </div>

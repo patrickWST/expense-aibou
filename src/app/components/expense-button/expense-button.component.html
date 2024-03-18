@@ -1,4 +1,4 @@
-<button class="expense-button" [routerLink]="['expense/add', expenseName]">
-    <span class="expense-button__title">{{ expenseName | titlecase}}</span>
-    <span class="expense-button__currency">{{ 400.20 | currency: 'EUR' }}</span>
+<button class="expense-button" [routerLink]="['expense/add', expense.name]">
+    <span class="expense-button__title">{{ expense.name | titlecase}}</span>
+    <span class="expense-button__currency">{{ expense.total | currency: homeCurrency }}</span>
 </button>

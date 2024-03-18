@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-interface Setting {
+export interface Setting {
   value: string,
   lastChanged: number,
 }

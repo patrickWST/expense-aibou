@@ -1,7 +1,7 @@
 <app-summary />
 <section class="overview__expense-list">
     @for (expense of expenses; track $index) {
-        <app-expense-button [expenseName]="expense"/>
+        <app-expense-button [expense]="expense" [homeCurrency]="homeCurrency.value"/>
     }
     <button
         class="overview__category-btn"
@@ -10,3 +10,16 @@
         Add category
     </button>
 </section>
+
+<dialog id="categoryDialog">
+    <form [formGroup]="addCategoryForm" (ngSubmit)="handleSubmit()">
+        <label>
+          Add Category
+            <input type="text" formControlName="category">
+        </label>
+      <div class="button-group">
+        <button type="button" class="btn--warning" (click)="closeAddCategoryModal()">Cancel</button>
+        <button type="submit" class="btn--success" [disabled]="!addCategoryForm.valid">Add</button>
+      </div>
+    </form>
+  </dialog>
