@@ -1,6 +1,6 @@
 button {
     color: black;
-    background-color: #DEDAF4;
+    background-color: var(--info);
     font-size: 32px;
     font-weight: 500;
     border-radius: 10px;
@@ -9,13 +9,13 @@ button {
 }
 
 .btn--success {
-    background-color: #A8D1D1;
+    background-color: var(--success);
 }
 
 .btn--warning {
-    background-color: #F4CBBA;
+    background-color: var(--warning);
 }
 
 .btn--danger {
-    background-color: #FD8A8A;
+    background-color: var(--danger);
 }

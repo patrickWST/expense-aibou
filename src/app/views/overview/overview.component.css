@@ -1,5 +1,5 @@
 .overview__category-btn {
-    background-color: #85b3d9;
+    background-color: var(--add-category-button);
     padding: 20px;
     margin: 8px 4px;
     width: calc(50% - 8px);
@@ -8,7 +8,7 @@
 }
 
 #categoryDialog {
-    background-color: #FAEDCB;
+    background-color: var(--bg);
     border: 4px solid black;
     border-radius: 10px;
 

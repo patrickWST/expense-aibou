@@ -1,5 +1,5 @@
 .expense-button {
-    background-color: #C6DEF1;
+    background-color: var(--bg-item);
     padding: 16px 0;
     margin: 8px 4px;
     width: calc(50% - 8px);

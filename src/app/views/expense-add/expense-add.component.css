@@ -11,7 +11,7 @@
 }
 
 .expense__form {
-    background-color: #C6DEF1;
+    background-color: var(--bg-item);
     border: 4px black solid;
     border-radius: 10px;
     padding: 24px 16px;
@@ -45,7 +45,7 @@ select {
     font-size: 22px;
     margin-top: 8px;
     padding: 8px;
-    background-color: #e3f1fc;
+    background-color: var(--expense-input);
     border: none;
 }
 
@@ -53,12 +53,12 @@ select {
     display: block;
     font-size: 16px;
     font-weight: 600;
-    color: #525252;
+    color: var(--expense-read-only);
 }
 
 .expense__value--read-only {
     font-size: 16px;
-    color: #525252;
+    color: var(--expense-read-only);
 }
 
 .expense__label--date {
