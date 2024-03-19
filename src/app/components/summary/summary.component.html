@@ -4,5 +4,7 @@
         <p>Total</p>
         <p>{{ totalExpenseAmount | currency: 'EUR' }}</p>
     </div>
-    <button class="summary__button" routerLink="/summary-view">Show Summary</button>
+    @if (!hideSummaryButton) {
+        <button class="summary__button" routerLink="/summary-view">Show Summary</button>
+    }
 </section>

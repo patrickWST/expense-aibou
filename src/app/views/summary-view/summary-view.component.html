@@ -1,1 +1,20 @@
-<p>summary-view works!</p>
+<app-summary [hideSummaryButton]="true" />
+
+@for (expense of expenses; track $index) {
+    <details class="summary__details">
+        <summary class="summary__summary">
+            <span>{{ expense.name | titlecase }}</span>
+            <span>{{ expense.total | currency: 'EUR' }}</span>
+        </summary>
+        @for (transaction of expense.transactions; track $index) {
+            <div class="summary__transaction">
+                <div>
+                    <span class="summary__transaction-date"> - {{ transaction.date }}</span>
+                    <span>{{ transaction.details || '---' }}</span>
+                </div>
+                <span>{{ transaction.amount | currency: 'EUR' }}</span>
+            </div>
+        }
+      </details>
+      <hr>
+}

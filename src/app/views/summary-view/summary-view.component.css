@@ -1,0 +1,21 @@
+.summary__details {
+    font-size: 24px;
+    font-weight: 600;
+    padding: 8px;
+}
+
+.summary__summary {
+    display: flex;
+    justify-content: space-between;
+}
+
+.summary__transaction {
+    font-size: 18px;
+    font-weight: 400;
+    display: flex;
+    justify-content: space-between;
+}
+
+.summary__transaction-date {
+    margin-right: 16px;
+}
