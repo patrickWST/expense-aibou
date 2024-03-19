@@ -6,6 +6,19 @@ body {
 
 /* Colors */
 
+:root {
+  --bg: #F4ACB7;
+  --bg-item: #FFCAD4;
+  --bg-total: #FFCAD4;
+  --total-button: #F4ACB7;
+  --success: white;
+  --warning: white;
+  --danger: white;
+  --info: white;
+  --expense-input: white;
+  --expense-read-only: #525252;
+  --add-category-button: white;
+}
 
 @media (prefers-color-scheme: dark) {
   :root {
