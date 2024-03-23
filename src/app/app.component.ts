@@ -22,9 +22,9 @@ export class AppComponent {
 
   ngOnInit () {
     const savedExchangeRate = this.storageService.loadData('exchangeRate') as ExchangeRate;
-    const OneDay = new Date().getTime() + (1 * 24 * 60 * 60 * 1000);
+    const OneDay = 1 * 24 * 60 * 60 * 1000;
 
-    if (!savedExchangeRate?.timestamp || savedExchangeRate.timestamp > OneDay) {
+    if (!savedExchangeRate?.timestamp || (Date.now() - savedExchangeRate.timestamp) > OneDay) {
       // get exchange rate on app start if not saved yet or outdated
       (async () => {
         this.exchangeRate = await this.exchangeService.getLatestExchangeRate('JPY');
