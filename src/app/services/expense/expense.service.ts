@@ -77,34 +77,34 @@ export class ExpenseService {
     return this._expenses;
   }
 
-  getExpenseByName(name: string): Expense | undefined {
-    return this._expenses.find((expense) => expense.name === name);
+  getCategoryByName(name: string): Expense | undefined {
+    return this._expenses.find((expense) => expense.name === name.toLowerCase());
   }
 
-  getExpenseIndexByName(name: string): number {
-    return this._expenses.findIndex((expense) => expense.name === name);
+  getCategoryIndexByName(name: string): number {
+    return this._expenses.findIndex((expense) => expense.name === name.toLowerCase());
   }
 
-  addTransaction(expenseName: string, transaction: Omit<Transaction, 'id'>): boolean {
-    const foundExpenseIndex = this.getExpenseIndexByName(expenseName);
+  addTransaction(categoryName: string, transaction: Omit<Transaction, 'id'>): boolean {
+    const foundCategoryIndex = this.getCategoryIndexByName(categoryName);
 
-    if(foundExpenseIndex === -1) {
+    if(foundCategoryIndex === -1) {
       return false;
     }
 
     const uuid = window.crypto.randomUUID();
-    this._expenses[foundExpenseIndex].transactions.push({
+    this._expenses[foundCategoryIndex].transactions.push({
       id: uuid,
       ...transaction,
     })
-    this._expenses[foundExpenseIndex].total += transaction.amount;
+    this._expenses[foundCategoryIndex].total += transaction.amount;
 
     this.storageService.persistData('expenses', this._expenses);
     return true;
   }
 
   addCategory(categoryName: string): boolean {
-    const foundCategory = this.getExpenseByName(categoryName);
+    const foundCategory = this.getCategoryByName(categoryName);
 
     if (foundCategory) {
       console.log('category already exists');
@@ -118,6 +118,19 @@ export class ExpenseService {
         transactions: [],
       }
     )
+    this.storageService.persistData('expenses', this._expenses);
+    return true;
+  }
+
+  changeCategoryName(oldCategoryName: string, newCategoryName: string): boolean {
+    const foundCategoryIndex = this.getCategoryIndexByName(oldCategoryName);
+
+    if (foundCategoryIndex === -1) {
+      console.log('category does not exist');
+      return false;
+    }
+
+    this._expenses[foundCategoryIndex].name = newCategoryName;
     this.storageService.persistData('expenses', this._expenses);
     return true;
   }
