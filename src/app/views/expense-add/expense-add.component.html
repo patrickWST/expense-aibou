@@ -55,17 +55,19 @@
             </label>
         </div>
 
-        <div class="expense__group expense__group--read-only">
-            <div>
-                <span class="expense__title--read-only">Exchange rate</span>
-                <span class="expense__title--read-only">{{ exchangeRateDate }}</span>
-                <span class="expense__value--read-only">EUR/{{selectedCurrency?.value}} {{exchangeRate}}</span>
+        @if (selectedCurrency?.value !== 'EUR') {
+            <div class="expense__group expense__group--read-only">
+                <div>
+                    <span class="expense__title--read-only">Exchange rate</span>
+                    <span class="expense__title--read-only">{{ exchangeRateDate }}</span>
+                    <span class="expense__value--read-only">EUR/{{selectedCurrency?.value}} {{exchangeRate}}</span>
+                </div>
+                <div>
+                    <span class="expense__title--read-only">Converted</span>
+                    <span class="expense__value--read-only">{{ convertedAmount | currency: 'EUR' }}</span>
+                </div>
             </div>
-            <div>
-                <span class="expense__title--read-only">Converted</span>
-                <span class="expense__value--read-only">{{ convertedAmount | currency: 'EUR' }}</span>
-            </div>
-        </div>
+        }
     </div>
 
 

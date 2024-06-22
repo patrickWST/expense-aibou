@@ -44,7 +44,7 @@ export class ExpenseAddComponent {
     date: new FormControl(new Date().toISOString().slice(0, 10)),
     time: new FormControl(new Date().toTimeString().slice(0,5)),
     details:  new FormControl(''),
-    currency: new FormControl('JPY'),
+    currency: new FormControl('JPY'), // TODO: Change to last used or trip setting currency
     amount: new FormControl('', [
       Validators.required,
       Validators.min(0.01),
@@ -64,11 +64,15 @@ export class ExpenseAddComponent {
 
   get selectedCurrency() { return this.addExpenseForm.get('currency')}
 
+  // TODO: Change EUR to home currency
+  get selectedCurrencyIsHomeCurrency() { return this.selectedCurrency?.value === 'EUR'}
+
 
   handleSubmit() {
     console.log(this.addExpenseForm.value);
 
-    if (!this.addExpenseForm.valid) {
+    if (!this.addExpenseForm.valid || !this.amount?.value) {
+      // TODO: Improve UX by showing some info
       return;
     }
 
@@ -77,9 +81,9 @@ export class ExpenseAddComponent {
       time: this.addExpenseForm.value.time || '',
       details: this.addExpenseForm.value.details || '',
       originalCurrency: this.addExpenseForm.value.currency || '',
-      amount: this.convertedAmount,
-      exchangeRate: this.exchangeRate,
-      exchangeRateDate: this.exchangeRateDate,
+      amount: this.selectedCurrencyIsHomeCurrency ? Number(this.amount.value) : this.convertedAmount,
+      exchangeRate: this.selectedCurrencyIsHomeCurrency ? 1 : this.exchangeRate,
+      exchangeRateDate: this.selectedCurrencyIsHomeCurrency ? '' : this.exchangeRateDate,
     };
 
     this.expenseService.addTransaction(this.selectedExpense, newTransaction);
