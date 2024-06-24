@@ -1,72 +1,52 @@
 <h2 class="expense__title">{{ selectedExpense }}</h2>
-<span class="expense__edit">Edit Category</span>
 
 <form [formGroup]="addExpenseForm" (ngSubmit)="handleSubmit()">
     <div class="expense__form">
         <div class="expense__group">
             <label class="expense__label expense__label--date">
                 Date
-                <input
-                    class="expense__details-date"
-                    type="date"
-                    formControlName="date"
-                >
+                <input class="expense__details-date" type="date" formControlName="date">
             </label>
             <label class="expense__label expense__label--time">
                 Time
-                <input
-                class="expense__details-time"
-                    type="time"
-                    formControlName="time"
-                >
+                <input class="expense__details-time" type="time" formControlName="time">
             </label>
         </div>
 
         <div class="expense__group">
             <label class="expense__label expense__label--full-width">
                 Details
-                <input
-                    class="expense__details-input"
-                    type="text"
-                    formControlName="details"
-                >
+                <input class="expense__details-input" type="text" formControlName="details">
             </label>
         </div>
 
         <div class="expense__group">
             <label class="expense__label">
                 Currency
-                <select
-                    class="expense__details-currency"
-                    formControlName="currency"
-                >
+                <select class="expense__details-currency" formControlName="currency">
                     @for (currency of currencies; track $index) {
-                        <option [value]="currency">{{currency}}</option>
+                    <option [value]="currency">{{currency}}</option>
                     }
                 </select>
             </label>
             <label class="expense__label">
                 Amount
-                <input
-                    class="expense__amount-input"
-                    type="number"
-                    formControlName="amount"
-                >
+                <input class="expense__amount-input" type="number" formControlName="amount">
             </label>
         </div>
 
         @if (selectedCurrency?.value !== 'EUR') {
-            <div class="expense__group expense__group--read-only">
-                <div>
-                    <span class="expense__title--read-only">Exchange rate</span>
-                    <span class="expense__title--read-only">{{ exchangeRateDate }}</span>
-                    <span class="expense__value--read-only">EUR/{{selectedCurrency?.value}} {{exchangeRate}}</span>
-                </div>
-                <div>
-                    <span class="expense__title--read-only">Converted</span>
-                    <span class="expense__value--read-only">{{ convertedAmount | currency: 'EUR' }}</span>
-                </div>
+        <div class="expense__group expense__group--read-only">
+            <div>
+                <span class="expense__title--read-only">Exchange rate</span>
+                <span class="expense__title--read-only">{{ exchangeRateDate }}</span>
+                <span class="expense__value--read-only">EUR/{{selectedCurrency?.value}} {{exchangeRate}}</span>
             </div>
+            <div>
+                <span class="expense__title--read-only">Converted</span>
+                <span class="expense__value--read-only">{{ convertedAmount | currency: 'EUR' }}</span>
+            </div>
+        </div>
         }
     </div>
 
@@ -77,3 +57,19 @@
     </div>
 
 </form>
+
+<h3>Settings</h3>
+<span class="expense__edit" (click)="openAddCategoryModal()">Change Category Name</span>
+
+<dialog id="categoryNameChangeDialog">
+    <form [formGroup]="changeCategoryNameForm" (ngSubmit)="handleChangeCategoryNameSubmit()">
+        <label>
+            New Category Name
+            <input type="text" formControlName="category">
+        </label>
+        <div class="button-group">
+            <button type="button" class="btn--warning" (click)="closeChangeCategoryNameModal()">Cancel</button>
+            <button type="submit" class="btn--success" [disabled]="!changeCategoryNameForm.valid">Save</button>
+        </div>
+    </form>
+</dialog>

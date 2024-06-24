@@ -89,4 +89,35 @@ export class ExpenseAddComponent {
     this.expenseService.addTransaction(this.selectedExpense, newTransaction);
     this.router.navigateByUrl('/');
   }
+
+  changeCategoryName(newCategoryName: string) {
+    this.expenseService.changeCategoryName(this.selectedExpense, newCategoryName);
+    this.router.navigateByUrl('/');
+  }
+
+  changeCategoryNameForm = new FormGroup({
+    category:  new FormControl('', [
+      Validators.required,
+      Validators.minLength(2),
+    ]),
+  })
+
+  openAddCategoryModal(): void {
+    const dialogElement = document.getElementById('categoryNameChangeDialog') as HTMLDialogElement;
+    dialogElement.showModal();
+  }
+
+  closeChangeCategoryNameModal(): void {
+    const dialogElement = document.getElementById('categoryNameChangeDialog') as HTMLDialogElement;
+    dialogElement.close();
+    this.changeCategoryNameForm.setValue({category: ''});
+  }
+
+  handleChangeCategoryNameSubmit(): void {
+    const chosenCategory = this.changeCategoryNameForm.value.category;
+    if (chosenCategory) {
+      this.changeCategoryName(chosenCategory);
+    }
+    this.closeChangeCategoryNameModal();
+  }
 }

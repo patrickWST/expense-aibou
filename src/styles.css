@@ -16,7 +16,7 @@ body {
   --danger: white;
   --info: white;
   --expense-input: white;
-  --expense-read-only: #525252;
+  --secondary-text: #525252;
   --add-category-button: white;
 }
 
@@ -31,7 +31,7 @@ body {
     --danger: #FD8A8A;
     --info: #DEDAF4;
     --expense-input: #e3f1fc;
-    --expense-read-only: #223843;
+    --secondary-text: #223843;
     --add-category-button: #85b3d9;
   }
 }  
