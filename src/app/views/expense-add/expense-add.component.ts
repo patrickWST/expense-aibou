@@ -54,8 +54,8 @@ export class ExpenseAddComponent {
   get convertedAmount() {
     const amount = this.addExpenseForm.get('amount');
     if (amount?.value) {
-      const amountValue = Number(amount.value);
-      return amountValue / this.exchangeRate;
+      const converted = Number(amount.value) / this.exchangeRate;
+      return Number(converted.toFixed(3));
     }
     return 0;
   }

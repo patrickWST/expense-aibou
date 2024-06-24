@@ -20,32 +20,32 @@ export interface Expense {
 
 const defaultCategories: Expense[] = [
   {
-    name: 'food',
+    name: 'Food',
     total: 0,
     transactions: [],
   },
   {
-    name: 'transport',
+    name: 'Transport',
     total: 0,
     transactions: [],
   },
   {
-    name: 'entries',
+    name: 'Entries',
     total: 0,
     transactions: [],
   },
   {
-    name: 'hotels',
+    name: 'Hotels',
     total: 0,
     transactions: [],
   },
   {
-    name: 'clothes',
+    name: 'Clothes',
     total: 0,
     transactions: [],
   },
   {
-    name: 'stationery',
+    name: 'Stationery',
     total: 0,
     transactions: [],
   }
@@ -78,11 +78,11 @@ export class ExpenseService {
   }
 
   getCategoryByName(name: string): Expense | undefined {
-    return this._expenses.find((expense) => expense.name === name.toLowerCase());
+    return this._expenses.find((expense) => expense.name.toLowerCase() === name.toLowerCase());
   }
 
   getCategoryIndexByName(name: string): number {
-    return this._expenses.findIndex((expense) => expense.name === name.toLowerCase());
+    return this._expenses.findIndex((expense) => expense.name.toLowerCase() === name.toLowerCase());
   }
 
   addTransaction(categoryName: string, transaction: Omit<Transaction, 'id'>): boolean {
