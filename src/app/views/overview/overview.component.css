@@ -4,7 +4,9 @@
     margin: 8px 4px;
     width: calc(50% - 8px);
     font-size: 24px;
+    line-height: 2.3;
     border-style: dotted;
+    vertical-align: top;
 }
 
 #categoryDialog {

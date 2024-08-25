@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { StorageService } from '../storage/storage.service';
+import { expenseSeed } from '../../data/expenseSeed';
 
 export interface Transaction {
   id: string,
@@ -18,7 +19,7 @@ export interface Expense {
   transactions: Transaction[],
 }
 
-const defaultCategories: Expense[] = [
+let defaultCategories: Expense[] = [
   {
     name: 'Food',
     total: 0,
@@ -50,6 +51,9 @@ const defaultCategories: Expense[] = [
     transactions: [],
   }
 ];
+
+// TODO: Change seed to pouchDB seed when switching to pouchDB
+defaultCategories = expenseSeed;
 
 @Injectable({
   providedIn: 'root'
@@ -130,6 +134,7 @@ export class ExpenseService {
       return false;
     }
 
+    // TODO additional checks if newCategoryName is valid & check url category for XSS
     this._expenses[foundCategoryIndex].name = newCategoryName;
     this.storageService.persistData('expenses', this._expenses);
     return true;

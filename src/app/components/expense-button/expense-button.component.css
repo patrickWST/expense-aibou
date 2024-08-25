@@ -1,8 +1,9 @@
 .expense-button {
     background-color: var(--bg-item);
-    padding: 16px 0;
+    padding: 16px 4px;
     margin: 8px 4px;
     width: calc(50% - 8px);
+    vertical-align: middle;
 }
 
 span {

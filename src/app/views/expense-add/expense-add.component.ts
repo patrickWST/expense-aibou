@@ -92,7 +92,7 @@ export class ExpenseAddComponent {
 
   changeCategoryName(newCategoryName: string) {
     this.expenseService.changeCategoryName(this.selectedExpense, newCategoryName);
-    this.router.navigateByUrl('/');
+    this.router.navigateByUrl(`/expense/add/${newCategoryName}`);
   }
 
   changeCategoryNameForm = new FormGroup({
