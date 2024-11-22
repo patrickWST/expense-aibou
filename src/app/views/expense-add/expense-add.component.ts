@@ -102,7 +102,7 @@ export class ExpenseAddComponent {
     ]),
   })
 
-  openAddCategoryModal(): void {
+  openChangeCategoryModal(): void {
     const dialogElement = document.getElementById('categoryNameChangeDialog') as HTMLDialogElement;
     dialogElement.showModal();
   }

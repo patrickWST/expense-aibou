@@ -59,7 +59,7 @@
 </form>
 
 <h3>Settings</h3>
-<span class="expense__edit" (click)="openAddCategoryModal()">Change Category Name</span>
+<span class="expense__edit" (click)="openChangeCategoryModal()">Change Category Name</span>
 
 <dialog id="categoryNameChangeDialog">
     <form [formGroup]="changeCategoryNameForm" (ngSubmit)="handleChangeCategoryNameSubmit()">
