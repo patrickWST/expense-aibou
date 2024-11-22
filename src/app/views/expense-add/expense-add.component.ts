@@ -27,6 +27,11 @@ export class ExpenseAddComponent {
 
   @Input()
   set id(expenseName: string) {
+    const expenseExists = !!this.expenseService.getCategoryByName(expenseName);
+    if (!expenseExists) {
+      this.router.navigateByUrl('/');
+      return;
+    }
     this.selectedExpense = expenseName;
   }
 
