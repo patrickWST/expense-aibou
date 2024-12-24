@@ -1,4 +1,5 @@
 @import "./assets/css/button.css";
+@import "./assets/css/simple-modal.css";
 
 body {
     background-color: var(--bg);
