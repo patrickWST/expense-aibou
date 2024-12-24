@@ -6,7 +6,6 @@ import { StorageService } from './services/storage/storage.service';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
   imports: [RouterLink, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

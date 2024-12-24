@@ -8,7 +8,6 @@ import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-expense-add',
-  standalone: true,
   imports: [ReactiveFormsModule, RouterLink, CurrencyPipe],
   templateUrl: './expense-add.component.html',
   styleUrl: './expense-add.component.css'

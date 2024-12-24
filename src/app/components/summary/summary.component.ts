@@ -6,11 +6,10 @@ import { StorageService } from '../../services/storage/storage.service';
 
 
 @Component({
-  selector: 'app-summary',
-  standalone: true,
-  imports: [CurrencyPipe, RouterLink],
-  templateUrl: './summary.component.html',
-  styleUrl: './summary.component.css'
+    selector: 'app-summary',
+    imports: [CurrencyPipe, RouterLink],
+    templateUrl: './summary.component.html',
+    styleUrl: './summary.component.css'
 })
 export class SummaryComponent {
   @Input() hideSummaryButton = false; 

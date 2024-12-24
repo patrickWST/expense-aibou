@@ -4,11 +4,10 @@ import { RouterLink } from '@angular/router';
 import { Expense } from '../../services/expense/expense.service';
 
 @Component({
-  selector: 'app-expense-button',
-  standalone: true,
-  imports: [CurrencyPipe, RouterLink, TitleCasePipe],
-  templateUrl: './expense-button.component.html',
-  styleUrl: './expense-button.component.css'
+    selector: 'app-expense-button',
+    imports: [CurrencyPipe, RouterLink, TitleCasePipe],
+    templateUrl: './expense-button.component.html',
+    styleUrl: './expense-button.component.css'
 })
 export class ExpenseButtonComponent {
   @Input() expense!: Expense;

@@ -1,6 +1,4 @@
-import { CurrencyPipe } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { SummaryComponent } from '../../components/summary/summary.component';
 import { ExpenseButtonComponent } from '../../components/expense-button/expense-button.component';
 import { ExpenseService } from '../../services/expense/expense.service';
@@ -9,17 +7,14 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 
 
 @Component({
-  selector: 'app-overview',
-  standalone: true,
-  imports: [
-    CurrencyPipe,
-    RouterLink,
+    selector: 'app-overview',
+    imports: [
     SummaryComponent,
     ExpenseButtonComponent,
-    ReactiveFormsModule,
-  ],
-  templateUrl: './overview.component.html',
-  styleUrl: './overview.component.css'
+    ReactiveFormsModule
+],
+    templateUrl: './overview.component.html',
+    styleUrl: './overview.component.css'
 })
 export class OverviewComponent {
   expenses;

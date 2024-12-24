@@ -4,7 +4,6 @@ import { StorageService } from '../../services/storage/storage.service';
 
 @Component({
   selector: 'app-settings',
-  standalone: true,
   imports: [],
   templateUrl: './settings.component.html',
   styleUrl: './settings.component.css',
