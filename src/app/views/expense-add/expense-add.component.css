@@ -1,12 +1,17 @@
+.expense__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .expense__title {
     text-transform: capitalize;
     text-align: center;
-    margin: 0 0 8px;
     font-size: 36px;
+    margin: 0;
 }
 
 .expense__edit {
-    display: block;
     color: var(--secondary-text);
 }
 
