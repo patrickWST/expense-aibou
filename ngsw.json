@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1735049977882,
+  "timestamp": 1735120005637,
   "index": "/expense-aibou/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "/expense-aibou/favicon.ico",
         "/expense-aibou/index.html",
-        "/expense-aibou/main-WZO6EKTD.js",
+        "/expense-aibou/main-PUQKMKLB.js",
         "/expense-aibou/manifest.webmanifest",
         "/expense-aibou/polyfills-FFHMD2TL.js",
         "/expense-aibou/styles-OTDBF3UB.css"
@@ -51,8 +51,8 @@
     "/expense-aibou/assets/icons/icon-72x72.png": "fc4b6d47e22ec1e934c41fc1f626ae02afef5b47",
     "/expense-aibou/assets/icons/icon-96x96.png": "8eb72fb1aa8a3707cfb63634b97efcb76a2363d5",
     "/expense-aibou/favicon.ico": "e2a2c9c35ec8550d3bc80b5d456beba4a9ee8ee3",
-    "/expense-aibou/index.html": "a4ffb87c3b63622e4b9cc2171fed09b3a93f81ce",
-    "/expense-aibou/main-WZO6EKTD.js": "49e42dd296a4b330a495091e660babc58f8851ba",
+    "/expense-aibou/index.html": "22f79130c9558ab31d4d667c1ce31b36176a1976",
+    "/expense-aibou/main-PUQKMKLB.js": "6e5455ad64f1ce40daab40080ab40587625d19ce",
     "/expense-aibou/manifest.webmanifest": "52199f8c3493b1a1ad001eebf5d6d81bd4a1883e",
     "/expense-aibou/polyfills-FFHMD2TL.js": "f49b49a155bc7d192db62a4c15d0a612b460a667",
     "/expense-aibou/styles-OTDBF3UB.css": "3b7a4cea34d6d5c8a20e632bdf4ca6738256d5ef"
